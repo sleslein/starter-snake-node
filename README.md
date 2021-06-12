@@ -1,4 +1,4 @@
-# A Simple [Battlesnake](http://play.battlesnake.com) Written in JavaScript for Node.js XXX
+# A Simple [Battlesnake](http://play.battlesnake.com) Written in JavaScript for Node.js 
 
 This is a basic implementation of the [Battlesnake API](https://docs.battlesnake.com/references/api). It's a great starting point for anyone wanting to program their first Battlesnake using JavaScript. It comes ready to use with [Repl.it](https://repl.it) and provides instructions below for getting started. It can also be deployed to [Heroku](https://heroku.com), or any other cloud provider you'd like.
 
