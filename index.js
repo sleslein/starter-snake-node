@@ -33,15 +33,43 @@ function handleStart(request, response) {
 }
 
 function handleMove(request, response) {
-  var gameData = request.body
+  var { game, turn, board, you} = request.body
 
   var possibleMoves = ['up', 'down', 'left', 'right']
   var move = possibleMoves[Math.floor(Math.random() * possibleMoves.length)]
+
+  if(canMoveLeft(you, board)) {
+    move = 'left';
+  } else if(canMoveUp(you, board)) {
+    move = 'up';
+  } else if (canMoveRight(you, board)) {
+    move = 'right'
+  } else if (canMoveDown(you, board)) {
+    move = 'down';
+  } else {
+    console.log(`Cannot move!!! x-${you.head.x} y-${you.head.y})`);
+  }
 
   console.log('MOVE: ' + move)
   response.status(200).send({
     move: move
   })
+}
+
+function canMoveLeft(you, board) {
+  return you.head.x > 0;
+}
+
+function canMoveDown(you, board) {
+  return you.head.y > 0;
+}
+
+function canMoveUp( you, board) {
+  return you.head.y < (board.height - 1);
+}
+
+function canMoveRight(you, board) {
+  return you.head.x < (board.width - 1);
 }
 
 function handleEnd(request, response) {
