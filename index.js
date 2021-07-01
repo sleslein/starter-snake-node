@@ -57,19 +57,28 @@ function handleMove(request, response) {
 }
 
 function canMoveLeft(you, board) {
-  return you.head.x > 0;
+  if(you.head.x === 0) return false;
+  if(you.body.includes((bodypart) => bodypart.x === (you.head.x - 1))) return false;
+  return true;
 }
 
 function canMoveDown(you, board) {
-  return you.head.y > 0;
+  if(you.head.y === 0) return false;
+  if(you.body.includes((bodypart) => bodypart.y === (you.head.y - 1))) return false;
+  
+  return true;
 }
 
 function canMoveUp( you, board) {
-  return you.head.y < (board.height - 1);
+  if(you.head.y === (board.height - 1)) return false;
+  if(you.body.includes((bodypart) => bodypart.y === (you.head.y + 1))) return false;
+  return true;
 }
 
 function canMoveRight(you, board) {
-  return you.head.x < (board.width - 1);
+  if(you.head.x === (board.width - 1)) return false;
+  if(you.body.includes((bodypart) => bodypart.x === (you.head.x + 1))) return false;
+  return true;
 }
 
 function handleEnd(request, response) {
