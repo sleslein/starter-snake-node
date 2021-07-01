@@ -58,26 +58,26 @@ function handleMove(request, response) {
 
 function canMoveLeft(you, board) {
   if(you.head.x === 0) return false;
-  if(you.body.includes((bodypart) => bodypart.x === (you.head.x - 1))) return false;
+  if(you.body.some((bodypart) => bodypart.x === (you.head.x - 1))) return false;
   return true;
 }
 
 function canMoveDown(you, board) {
   if(you.head.y === 0) return false;
-  if(you.body.includes((bodypart) => bodypart.y === (you.head.y - 1))) return false;
+  if(you.body.some((bodypart) => bodypart.y === (you.head.y - 1))) return false;
   
   return true;
 }
 
 function canMoveUp( you, board) {
   if(you.head.y === (board.height - 1)) return false;
-  if(you.body.includes((bodypart) => bodypart.y === (you.head.y + 1))) return false;
+  if(you.body.some((bodypart) => bodypart.y === (you.head.y + 1))) return false;
   return true;
 }
 
 function canMoveRight(you, board) {
   if(you.head.x === (board.width - 1)) return false;
-  if(you.body.includes((bodypart) => bodypart.x === (you.head.x + 1))) return false;
+  if(you.body.some((bodypart) => bodypart.x === (you.head.x + 1))) return false;
   return true;
 }
 
